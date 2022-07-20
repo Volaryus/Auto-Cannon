@@ -5,7 +5,8 @@ using UnityEngine;
 public class Cannon : MonoBehaviour
 {
     public float yLimit = 75f;
-    public float turnSpeed = 15f;
+    public float turnSpeedZ = 15f;
+    public float turnSpeedY = 15f;
     bool turnRight = true;
 
     [SerializeField]
@@ -14,7 +15,7 @@ public class Cannon : MonoBehaviour
     public Transform[] shootPoint;
     bool canShot = true;
     public bool shotTriple = false;
-    float tripleShotCounter=15f;
+    float tripleShotCounter = 15f;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,16 +27,16 @@ public class Cannon : MonoBehaviour
     {
         if (turnRight)
         {
-            transform.Rotate(0, 0, turnSpeed * Time.deltaTime);
-            if (transform.rotation.eulerAngles.z >= yLimit - 5)
+            transform.Rotate(0, turnSpeedZ * Time.deltaTime, 0);
+            if (transform.rotation.eulerAngles.y >= yLimit - 5)
             {
                 turnRight = !turnRight;
             }
         }
         else
         {
-            transform.Rotate(0, 0, -turnSpeed * Time.deltaTime);
-            if (transform.rotation.eulerAngles.z >= 360 - yLimit)
+            transform.Rotate(0, -turnSpeedZ * Time.deltaTime, 0);
+            if (transform.rotation.eulerAngles.y >= 360 - yLimit)
             {
                 turnRight = !turnRight;
             }
@@ -51,7 +52,7 @@ public class Cannon : MonoBehaviour
             Shoot();
         }
 #endif
-        if(shotTriple)
+        if (shotTriple)
         {
 
         }
@@ -66,7 +67,7 @@ public class Cannon : MonoBehaviour
             GameObject shootedBall = Instantiate(ball, shootPoint[0].position, shootPoint[0].rotation);
             Rigidbody ballRb = shootedBall.GetComponent<Rigidbody>();
             ballRb.velocity = shootPoint[0].forward * shootSpeed;
-           // ballRb.AddRelativeForce(shootPoint[0].forward * shootSpeed, ForceMode.Impulse);
+            // ballRb.AddRelativeForce(shootPoint[0].forward * shootSpeed, ForceMode.Impulse);
         }
         else
         {
