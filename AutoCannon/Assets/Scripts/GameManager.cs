@@ -102,4 +102,22 @@ public class GameManager : MonoBehaviour
             timer += 15;
         }
     }
+
+    public void AddTriple(int amount, int price)
+    {
+        if (gold.gold >= price)
+        {
+            specials.BuyTriple(amount);
+            gold.gold -= price;
+        }
+    }
+
+    public void BuyTime(int amount, int price)
+    {
+        if (gold.gold >= price)
+        {
+            specials.BuyTime(amount);
+            gold.gold -= price;
+        }
+    }
 }

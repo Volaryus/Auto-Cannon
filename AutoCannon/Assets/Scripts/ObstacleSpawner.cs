@@ -24,7 +24,7 @@ public class ObstacleSpawner : MonoBehaviour
         {
             realTimer = timer;
             RandomIndex();
-           while(index==beforeIndex)
+            while (index == beforeIndex)
             {
                 RandomIndex();
             }

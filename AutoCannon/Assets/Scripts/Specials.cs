@@ -34,4 +34,16 @@ public class Specials : MonoBehaviour
             PlayerPrefs.SetInt("timeAdder", timeAdder);
     }
 
+    public void BuyTime(int amount)
+    {
+        timeAdder += amount;
+        PlayerPrefs.SetInt("timeAdder", timeAdder);
+    }
+
+    public void BuyTriple(int amount)
+    {
+        tripleShot += amount;
+        PlayerPrefs.SetInt("tripleShot", tripleShot);
+    }
+
 }
