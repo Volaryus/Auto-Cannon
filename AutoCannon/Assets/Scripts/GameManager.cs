@@ -63,12 +63,12 @@ public class GameManager : MonoBehaviour
     public void PlayGame()
     {
         gold.AddCoin(coinAmount);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     public void ReturnMenu()
     {
         gold.AddCoin(coinAmount);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void DoubleCoin()
